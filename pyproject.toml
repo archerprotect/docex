@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "docex"
+version = "0.1.0"
+description = "Dead simple document extraction OCR powered by LLMs"
+authors = ["Francisco Rubin Capalbo <fran@archerprotect.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+pyright = "^1.1.370"
+poethepoet = "^0.27.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+test = "pytest"
+lint = "pyright" 
