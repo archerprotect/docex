@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docex-llm"
-version = "0.1.0"
+version = "0.1.1"
 description = "Dead simple document extraction OCR powered by LLMs"
 authors = ["Francisco Rubin Capalbo <fran@archerprotect.com>"]
 readme = "README.md"
