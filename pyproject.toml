@@ -1,17 +1,43 @@
 [tool.poetry]
-name = "docex"
+name = "docex-llm"
 version = "0.1.0"
 description = "Dead simple document extraction OCR powered by LLMs"
 authors = ["Francisco Rubin Capalbo <fran@archerprotect.com>"]
 readme = "README.md"
+packages = [{include = "docex"}]
+license = "MIT"
+homepage = "https://github.com/archerprotect/docex"
+repository = "https://github.com/archerprotect/docex"
+documentation = "https://github.com/archerprotect/docex#readme"
+keywords = ["ocr", "document", "extraction", "llm", "ai", "pdf", "vision"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing",
+    "Topic :: Multimedia :: Graphics :: Capture :: Scanners",
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+pypdf2 = "^3.0.1"
+pdf2image = "^1.17.0"
+pydantic = "^2.11.5"
+pillow = "^11.2.1"
+litellm = "^1.71.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.2"
 pyright = "^1.1.370"
 poethepoet = "^0.27.0"
+ipython = "<9.0"
 
 [build-system]
 requires = ["poetry-core"]
