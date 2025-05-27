@@ -87,4 +87,23 @@ class Pipeline:
         Returns:
             ProcessedDocument containing metadata and extracted data
         """
-        return asyncio.run(self.process_document(file_path, schema))
+        try:
+            asyncio.get_running_loop()
+            import concurrent.futures
+
+            def run_async():
+                new_loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(new_loop)
+                try:
+                    return new_loop.run_until_complete(
+                        self.process_document(file_path, schema)
+                    )
+                finally:
+                    new_loop.close()
+
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                future = executor.submit(run_async)
+                return future.result()
+
+        except RuntimeError:
+            return asyncio.run(self.process_document(file_path, schema))
